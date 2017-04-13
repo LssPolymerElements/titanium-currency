@@ -14,7 +14,6 @@ To install use: `bower install --save titanium-currency`
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="titanium-currency.html">
-	<link rel="import" href="../paper-input/paper-input.html">
     <div>
       <template is="dom-bind">
         <next-code-block></next-code-block>
