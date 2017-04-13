@@ -34,7 +34,7 @@ class TitaniumCurrency extends polymer.Base {
     })
     formattedValue: string;
 
-    computeFormattedValue(value: string, accountingFormat: boolean, thousandsSeparators: boolean, decimalPlaces: number): string {
+    computeFormattedValue(value: string, accountingFormat: boolean, thousandsSeparators: boolean, decimalPlaces: string): string {
         var floatValue: number;
         floatValue = parseFloat(value);
 
@@ -50,9 +50,7 @@ class TitaniumCurrency extends polymer.Base {
         var formattedValue = Math.abs(floatValue).toFixed(digits);
 
         if (this.thousandsSeparators) {
-            formattedValue = `${formattedValue.replace(/./g, function (c, i, a) {
-                return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
-            })}`;
+            formattedValue = this._addCommas(formattedValue);
         }
 
         formattedValue = `\$${formattedValue}`;
@@ -64,6 +62,18 @@ class TitaniumCurrency extends polymer.Base {
         }
 
         return formattedValue;
+    }
+
+    _addCommas(value: string) {
+        value += '';
+        var x = value.split('.');
+        var x1 = x[0];
+        var x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
     }
 
 }

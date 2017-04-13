@@ -26,7 +26,7 @@ To install use: `bower install --save titanium-currency`
 ```html
 		
         <h1>Sample Output</h1>
-		<titanium-currency value="-1200" decimal-places="2" thousands-separators="true" accounting-format="false"></titanium-currency>
+		<titanium-currency value="-1200" decimal-places="2" thousands-separators accounting-format></titanium-currency>
         
 ```
 
