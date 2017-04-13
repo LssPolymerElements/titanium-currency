@@ -1,4 +1,4 @@
-# bowser-polymer 
+# titanium-currency
 
 A polymer element that formats currency.
 
@@ -14,6 +14,7 @@ To install use: `bower install --save titanium-currency`
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="titanium-currency.html">
+	<link rel="import" href="../paper-input/paper-input.html">
     <div>
       <template is="dom-bind">
         <next-code-block></next-code-block>
@@ -24,11 +25,10 @@ To install use: `bower install --save titanium-currency`
 ```
 -->
 ```html
-<titanium-currency value="{{value}}"></titanium-currency>
-            <h1>Bound Properties</h1>
-            <ul>
-                <li> Value: [[value]]</li>
-            </ul>
+		
+        <h1>Sample Output</h1>
+		<titanium-currency value="-1200" decimal-places="2" thousands-separators="true" accounting-format="false"></titanium-currency>
+        
 ```
 
 
