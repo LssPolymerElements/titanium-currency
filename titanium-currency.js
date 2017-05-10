@@ -19,14 +19,15 @@ var TitaniumCurrency = (function (_super) {
     function TitaniumCurrency() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TitaniumCurrency.prototype.computeFormattedValue = function (value, accountingFormat, thousandsSeparators, decimalPlaces) {
+    TitaniumCurrency.prototype.computeFormattedValue = function (value) {
         var floatValue;
         floatValue = parseFloat(value);
         //can't parse into a number, return original parameter
         if (isNaN(floatValue)) {
-            return value;
+            this.set("formattedValue", value);
+            return;
         }
-        var decimalPlacesValue = parseInt(decimalPlaces);
+        var decimalPlacesValue = parseInt(this.decimalPlaces.toString());
         var digits = (decimalPlacesValue && (decimalPlacesValue >= 0)) ? decimalPlacesValue : 0;
         digits = Math.min(digits, 20);
         var formattedValue = Math.abs(floatValue).toFixed(digits);
@@ -40,7 +41,7 @@ var TitaniumCurrency = (function (_super) {
         else if (floatValue < 0) {
             formattedValue = "-" + formattedValue;
         }
-        return formattedValue;
+        this.set("formattedValue", formattedValue);
     };
     TitaniumCurrency.prototype._addCommas = function (value) {
         value += '';
@@ -79,11 +80,12 @@ __decorate([
 __decorate([
     property({
         type: String,
-        readOnly: true,
-        notify: true,
-        computed: 'computeFormattedValue(value,accountingFormat,thousandsSeparators,decimalPlaces)'
+        notify: true
     })
 ], TitaniumCurrency.prototype, "formattedValue", void 0);
+__decorate([
+    observe("value")
+], TitaniumCurrency.prototype, "computeFormattedValue", null);
 TitaniumCurrency = __decorate([
     component("titanium-currency")
 ], TitaniumCurrency);
