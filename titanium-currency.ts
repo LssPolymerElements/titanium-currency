@@ -28,22 +28,22 @@ class TitaniumCurrency extends polymer.Base {
     /**The value formatted as currency.*/
     @property({
         type: String,
-        readOnly: true,
-        notify: true,
-        computed: 'computeFormattedValue(value,accountingFormat,thousandsSeparators,decimalPlaces)'
+        notify: true
     })
     formattedValue: string;
 
-    computeFormattedValue(value: string, accountingFormat: boolean, thousandsSeparators: boolean, decimalPlaces: string): string {
+    @observe("value")
+    computeFormattedValue(value: string): string {
         var floatValue: number;
         floatValue = parseFloat(value);
 
         //can't parse into a number, return original parameter
         if (isNaN(floatValue)) {
-            return value;
+            this.set("formattedValue", value)
+            return;
         }
 
-        var decimalPlacesValue = parseInt(decimalPlaces);
+        var decimalPlacesValue = parseInt(this.decimalPlaces.toString());
         var digits = (decimalPlacesValue && (decimalPlacesValue >= 0)) ? decimalPlacesValue : 0;
         digits = Math.min(digits, 20);
 
@@ -61,7 +61,7 @@ class TitaniumCurrency extends polymer.Base {
             formattedValue = `-${formattedValue}`;
         }
 
-        return formattedValue;
+        this.set("formattedValue", formattedValue);
     }
 
     _addCommas(value: string) {
