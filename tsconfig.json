@@ -7,16 +7,17 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "sourceMap": true,
-   // "strictNullChecks": true,
-      "lib": [
+    // "strictNullChecks": true,
+    "lib": [
       "es2015.promise",
       "dom",
       "es5"
     ]
- },
+  },
   "compileOnSave": true,
   "exclude": [
     "build",
-    "node_modules"
+    "node_modules",
+    "bower_components/reflect-metadata/"
   ]
 }

@@ -17,7 +17,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var TitaniumCurrency = (function (_super) {
     __extends(TitaniumCurrency, _super);
     function TitaniumCurrency() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        /**Whether to use parentheses to format negative values. e.g. a value of `-4` produces a formattedValue of `($4)`*/
+        _this.accountingFormat = false;
+        /**Whether to use commas to separate thousands places. e.g. a value of `4000000` produces a formattedValue of `$4,000,000`*/
+        _this.thousandsSeparators = true;
+        /**Number of decimal places to round to in the formatted value. e.g. a value of `30.5678` and decimalPlaces of `2` produces a formattedValue of `$30.57`*/
+        _this.decimalPlaces = 0;
+        return _this;
     }
     TitaniumCurrency.prototype.computeFormattedValue = function (value) {
         var floatValue;
@@ -32,7 +39,7 @@ var TitaniumCurrency = (function (_super) {
         digits = Math.min(digits, 20);
         var formattedValue = Math.abs(floatValue).toFixed(digits);
         if (this.thousandsSeparators) {
-            formattedValue = this._addCommas(formattedValue);
+            formattedValue = this.addCommas(formattedValue);
         }
         formattedValue = "$" + formattedValue;
         if (floatValue < 0 && this.accountingFormat) {
@@ -43,7 +50,7 @@ var TitaniumCurrency = (function (_super) {
         }
         this.set("formattedValue", formattedValue);
     };
-    TitaniumCurrency.prototype._addCommas = function (value) {
+    TitaniumCurrency.prototype.addCommas = function (value) {
         value += '';
         var x = value.split('.');
         var x1 = x[0];
@@ -55,31 +62,21 @@ var TitaniumCurrency = (function (_super) {
         return x1 + x2;
     };
     return TitaniumCurrency;
-}(polymer.Base));
+}(Polymer.Element));
 __decorate([
     property()
 ], TitaniumCurrency.prototype, "value", void 0);
 __decorate([
-    property({
-        type: Boolean,
-        value: false
-    })
+    property()
 ], TitaniumCurrency.prototype, "accountingFormat", void 0);
 __decorate([
-    property({
-        type: Boolean,
-        value: true
-    })
+    property()
 ], TitaniumCurrency.prototype, "thousandsSeparators", void 0);
 __decorate([
-    property({
-        type: Number,
-        value: true
-    })
+    property()
 ], TitaniumCurrency.prototype, "decimalPlaces", void 0);
 __decorate([
     property({
-        type: String,
         notify: true
     })
 ], TitaniumCurrency.prototype, "formattedValue", void 0);
@@ -87,7 +84,6 @@ __decorate([
     observe("value")
 ], TitaniumCurrency.prototype, "computeFormattedValue", null);
 TitaniumCurrency = __decorate([
-    component("titanium-currency")
+    customElement("titanium-currency")
 ], TitaniumCurrency);
-TitaniumCurrency.register();
 //# sourceMappingURL=titanium-currency.js.map

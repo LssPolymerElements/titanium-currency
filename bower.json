@@ -1,12 +1,13 @@
 {
   "name": "titanium-currency",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "keywords": [
     "polymer",
     "bowser"
   ],
   "authors": [
-    "Anthony Thomas <anthony-thomas@leavitt.com>"
+    "Anthony Thomas <anthony-thomas@leavitt.com>",
+    "Kasey Hinton <kasey-hinton@leavitt.com>"
   ],
   "main": "titanium-currency.html",
   "description": "A polymer element that displays formatted currency.",
@@ -19,16 +20,14 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.1.0",
-    "polymer-ts": "^0.1.29"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "polymer2-ts": "^1.0.0"
   },
   "devDependencies": {
-    "web-component-tester": "^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "paper-input": "PolymerElements/paper-input#^1.1.23",
-    "paper-toggle-button": "PolymerElements/paper-toggle-button#^1.3.0",
-    "iron-component-page": "PolymerElements/iron-component-page#^1.1.8",
-    "polymer-ts": "^0.1.29",
-    "iron-demo-helpers": "^1.2.5"
+    "web-component-tester": "^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "paper-input": "PolymerElements/paper-input#^2.0.0",
+    "paper-toggle-button": "PolymerElements/paper-toggle-button#^2.0.0",
+    "lss-iron-demo-helpers": "LssPolymerElements/iron-demo-helpers#^2.0.0"
   }
 }

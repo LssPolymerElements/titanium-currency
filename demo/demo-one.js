@@ -1,4 +1,3 @@
-/// <reference path="../bower_components/polymer-ts/polymer-ts.ts" />
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -18,17 +17,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var DemoOne = (function (_super) {
     __extends(DemoOne, _super);
     function DemoOne() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super.call(this) || this;
+        _this.decimalPlaces = "2";
+        return _this;
     }
-    DemoOne.prototype.attached = function () {
+    DemoOne.prototype.connectedCallback = function () {
+        _super.prototype.connectedCallback.call(this);
     };
     return DemoOne;
-}(polymer.Base));
+}(Polymer.Element));
 __decorate([
-    property({ value: "2" })
+    property()
 ], DemoOne.prototype, "decimalPlaces", void 0);
 DemoOne = __decorate([
-    component("demo-one")
+    customElement("demo-one")
 ], DemoOne);
-DemoOne.register();
 //# sourceMappingURL=demo-one.js.map
