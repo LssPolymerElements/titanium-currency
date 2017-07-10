@@ -11,14 +11,10 @@ To install use: `bower install --save titanium-currency`
 <!---
 ```
 <custom-element-demo>
-  <template>
+  <template is="dom-bind">
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="titanium-currency.html">
-    <div>
-      <template is="dom-bind">
-        <next-code-block></next-code-block>
-      </template>
-    </div>
+    <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
 ```
