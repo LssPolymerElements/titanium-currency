@@ -1,4 +1,4 @@
-@customElement("titanium-currency")
+@customElement('titanium-currency')
 class TitaniumCurrency extends Polymer.Element {
     /**value parameter. If this is not a number or parseable into a number, formattedValue will be the same as this*/
     @property()
@@ -22,22 +22,22 @@ class TitaniumCurrency extends Polymer.Element {
     })
     formattedValue: string;
 
-    @observe("value,accountingFormat,decimalPlaces,thousandsSeparators")
+    @observe('value,accountingFormat,decimalPlaces,thousandsSeparators')
     computeFormattedValue(value: string): void {
-        var floatValue: number;
+        let floatValue: number;
         floatValue = parseFloat(value);
 
         //can't parse into a number, return original parameter
         if (isNaN(floatValue)) {
-            this.set("formattedValue", value)
+            this.set('formattedValue', value);
             return;
         }
 
-        var decimalPlacesValue = parseInt(this.decimalPlaces.toString());
-        var digits = (decimalPlacesValue && (decimalPlacesValue >= 0)) ? decimalPlacesValue : 0;
+        let decimalPlacesValue = parseInt(this.decimalPlaces.toString());
+        let digits = (decimalPlacesValue && (decimalPlacesValue >= 0)) ? decimalPlacesValue : 0;
         digits = Math.min(digits, 20);
 
-        var formattedValue = Math.abs(floatValue).toFixed(digits);
+        let formattedValue = Math.abs(floatValue).toFixed(digits);
 
         if (this.thousandsSeparators) {
             formattedValue = this.addCommas(formattedValue);
@@ -51,15 +51,15 @@ class TitaniumCurrency extends Polymer.Element {
             formattedValue = `-${formattedValue}`;
         }
 
-        this.set("formattedValue", formattedValue);
+        this.set('formattedValue', formattedValue);
     }
 
     private addCommas(value: string): string {
         value += '';
-        var x = value.split('.');
-        var x1 = x[0];
-        var x2 = x.length > 1 ? '.' + x[1] : '';
-        var rgx = /(\d+)(\d{3})/;
+        let x = value.split('.');
+        let x1 = x[0];
+        let x2 = x.length > 1 ? '.' + x[1] : '';
+        let rgx = /(\d+)(\d{3})/;
         while (rgx.test(x1)) {
             x1 = x1.replace(rgx, '$1' + ',' + '$2');
         }

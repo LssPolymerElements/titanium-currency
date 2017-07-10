@@ -18,17 +18,17 @@ let TitaniumCurrency = class TitaniumCurrency extends Polymer.Element {
         this.decimalPlaces = 0;
     }
     computeFormattedValue(value) {
-        var floatValue;
+        let floatValue;
         floatValue = parseFloat(value);
         //can't parse into a number, return original parameter
         if (isNaN(floatValue)) {
-            this.set("formattedValue", value);
+            this.set('formattedValue', value);
             return;
         }
-        var decimalPlacesValue = parseInt(this.decimalPlaces.toString());
-        var digits = (decimalPlacesValue && (decimalPlacesValue >= 0)) ? decimalPlacesValue : 0;
+        let decimalPlacesValue = parseInt(this.decimalPlaces.toString());
+        let digits = (decimalPlacesValue && (decimalPlacesValue >= 0)) ? decimalPlacesValue : 0;
         digits = Math.min(digits, 20);
-        var formattedValue = Math.abs(floatValue).toFixed(digits);
+        let formattedValue = Math.abs(floatValue).toFixed(digits);
         if (this.thousandsSeparators) {
             formattedValue = this.addCommas(formattedValue);
         }
@@ -39,14 +39,14 @@ let TitaniumCurrency = class TitaniumCurrency extends Polymer.Element {
         else if (floatValue < 0) {
             formattedValue = `-${formattedValue}`;
         }
-        this.set("formattedValue", formattedValue);
+        this.set('formattedValue', formattedValue);
     }
     addCommas(value) {
         value += '';
-        var x = value.split('.');
-        var x1 = x[0];
-        var x2 = x.length > 1 ? '.' + x[1] : '';
-        var rgx = /(\d+)(\d{3})/;
+        let x = value.split('.');
+        let x1 = x[0];
+        let x2 = x.length > 1 ? '.' + x[1] : '';
+        let rgx = /(\d+)(\d{3})/;
         while (rgx.test(x1)) {
             x1 = x1.replace(rgx, '$1' + ',' + '$2');
         }
@@ -76,11 +76,11 @@ __decorate([
     __metadata("design:type", String)
 ], TitaniumCurrency.prototype, "formattedValue", void 0);
 __decorate([
-    observe("value,accountingFormat,decimalPlaces,thousandsSeparators"),
+    observe('value,accountingFormat,decimalPlaces,thousandsSeparators'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TitaniumCurrency.prototype, "computeFormattedValue", null);
 TitaniumCurrency = __decorate([
-    customElement("titanium-currency")
+    customElement('titanium-currency')
 ], TitaniumCurrency);
