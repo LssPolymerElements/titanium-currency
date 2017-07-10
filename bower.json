@@ -29,5 +29,8 @@
     "paper-input": "PolymerElements/paper-input#^2.0.0",
     "paper-toggle-button": "PolymerElements/paper-toggle-button#^2.0.0",
     "lss-iron-demo-helpers": "LssPolymerElements/iron-demo-helpers#^2.0.0"
+  },
+  "demos": {
+    "Demo": "demo/index.html"
   }
 }
