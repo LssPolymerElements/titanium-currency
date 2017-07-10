@@ -22,7 +22,7 @@ class TitaniumCurrency extends Polymer.Element {
     })
     formattedValue: string;
 
-    @observe("value")
+    @observe("value,accountingFormat,decimalPlaces,thousandsSeparators")
     computeFormattedValue(value: string): void {
         var floatValue: number;
         floatValue = parseFloat(value);

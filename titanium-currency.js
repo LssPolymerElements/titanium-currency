@@ -76,7 +76,7 @@ __decorate([
     __metadata("design:type", String)
 ], TitaniumCurrency.prototype, "formattedValue", void 0);
 __decorate([
-    observe("value"),
+    observe("value,accountingFormat,decimalPlaces,thousandsSeparators"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
