@@ -1,6 +1,6 @@
 {
   "name": "titanium-currency",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "keywords": [
     "polymer",
     "bowser"
@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "polymer2-ts": "^1.0.0"
+    "polymer-decorators": "Polymer/polymer-decorators#^1.0.2"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0",
