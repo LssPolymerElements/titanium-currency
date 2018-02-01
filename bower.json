@@ -15,8 +15,10 @@
   "ignore": [
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "package.json",
+    "tsconfig.json",
+    ".gitignore",
+    ".vscode"
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
@@ -28,8 +30,5 @@
     "paper-input": "PolymerElements/paper-input#^2.0.0",
     "paper-toggle-button": "PolymerElements/paper-toggle-button#^2.0.0",
     "lss-iron-demo-helpers": "LssPolymerElements/iron-demo-helpers#^2.0.0"
-  },
-  "demos": {
-    "Demo": "demo/index.html"
   }
 }
