@@ -5,18 +5,17 @@
   "main": "titanium-currency.html",
   "dependencies": {},
   "scripts": {
-    "prepublish": "npm run build",
-    "postinstall": "bower install",
+    "postinstall": "bower cache clean && bower install",
+    "prepare": "npm run build",
     "lint": "tslint \"*.ts\"",
-    "build": "tsc",
+    "build": "npm run lint && tsc",
     "test": "npm run lint && npm run build"
   },
   "devDependencies": {
-    "clang-format": "^1.2.2",
-    "tslint": "^4.0.2",
     "browser-sync": "^2.18.2",
+    "clang-format": "^1.2.2",
     "gulp": "^3.9.1",
-    "typescript": "^2.6.1",
-    "bower": "*"
+    "tslint": "^4.0.2",
+    "typescript": "^2.6.1"
   }
 }
