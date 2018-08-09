@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "polymer-decorators": "Polymer/polymer-decorators#^1.0.2"
+    "polymer-decorators": "Polymer/polymer-decorators#^1.2.0"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0",
