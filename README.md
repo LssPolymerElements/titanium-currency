@@ -8,26 +8,5 @@ A polymer element that formats currency.
 
 To install use: `bower install --save titanium-currency`
 
-[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/titanium-currency)
-
-
-
-<!---
-```
-<custom-element-demo>
-  <template is="dom-bind">
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="titanium-currency.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-		
-        <h1>Sample Output</h1>
-		<titanium-currency value="-1200" decimal-places="2" thousands-separators accounting-format></titanium-currency>
-        
-```
-
+# This element has been deprecated therefor is no longer is maintained or supported. 
 
